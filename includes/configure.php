@@ -22,6 +22,9 @@ function bdpn_configure_theme() {
 	// Enqueue assets
 	add_action( 'wp_enqueue_scripts', 'bdpn_enqueue_assets' );
 
+	// Image sizes
+	add_action( 'init', 'bdpn_image_sizes' );
+
 }
 
 // Theme support
@@ -88,6 +91,17 @@ function bdpn_enqueue_assets() {
 		wp_enqueue_style( 'bdpn_styles' );
 
 	}
+
+}
+
+// Images sizes
+function bdpn_image_sizes() {
+
+	// Add thumb-medium size
+	add_image_size( 'thumb-medium', 780, 400, true );
+
+	// Add thumb-large size
+	add_image_size( 'thumb-large', 1024, 525, true );
 
 }
 
