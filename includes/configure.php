@@ -83,7 +83,7 @@ function bdpn_enqueue_assets() {
 		// Register webfonts
 		wp_register_style( 'bdpn_webfonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Lancelot' );
 		// Register main styles
-		wp_register_style( 'bdpn_styles', sprintf( $asset_path, 'bdpn', 'css' ) );
+		wp_register_style( 'bdpn_styles', sprintf( $asset_path, 'styles', 'css' ) );
 
 		// Enqueue webfonts
 		wp_enqueue_style( 'bdpn_webfonts' );

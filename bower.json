@@ -4,5 +4,8 @@
   "description": "Digital Library of Novohispanic Thought Blog",
   "authors": [
     "Marco Godínez <markotom@gmail.com>"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
 }
