@@ -19,6 +19,9 @@ function bdpn_configure_theme() {
 	// Head cleanup
 	add_action( 'init', 'bdpn_head_cleanup' );
 
+	// Enqueue assets
+	add_action( 'wp_enqueue_scripts', 'bdpn_enqueue_assets' );
+
 }
 
 // Theme support
@@ -63,6 +66,28 @@ function bdpn_head_cleanup() {
 
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
+
+}
+
+// Enqueue assets
+function bdpn_enqueue_assets() {
+
+	if ( ! is_admin () ) {
+
+		// Asset path format
+		$asset_path = get_stylesheet_directory_uri() . '/built/%2$s/%1$s.%2$s';
+
+		// Register webfonts
+		wp_register_style( 'bdpn_webfonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Lancelot' );
+		// Register main styles
+		wp_register_style( 'bdpn_styles', sprintf( $asset_path, 'bdpn', 'css' ) );
+
+		// Enqueue webfonts
+		wp_enqueue_style( 'bdpn_webfonts' );
+		// Enqueue main styles
+		wp_enqueue_style( 'bdpn_styles' );
+
+	}
 
 }
 
