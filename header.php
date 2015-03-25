@@ -22,12 +22,12 @@
 				</a>
 			</div>
 			<div class="logo pull-left">
-				<a href="<?php echo home_url() ; ?>">
+				<a href="http://www.bdpn.unam.mx">
 					<img src="http://www.bdpn.unam.mx/images/unam_bdpn_bgd_logo.png" alt="">
 				</a>
 			</div>
 			<h1 class="title">
-				<a href="<?php echo home_url() ; ?>"><?php bloginfo( 'sitename' ) ?></a>
+				<a href="http://www.bdpn.unam.mx"><?php bloginfo( 'sitename' ) ?></a>
 			</h1>
 			<h2 class="subtitle"><?php bloginfo( 'description' ) ?></h2>
 
