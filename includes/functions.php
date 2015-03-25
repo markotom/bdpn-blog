@@ -173,4 +173,95 @@ function bdpn_post_thumbnail( $thumb_size = 'thumb-large' ) {
 	endif;
 
 }
+
+function the_breadcrumb() {
+	global $post;
+
+	if ( ! is_home() ) {
+		echo '<ol class="breadcrumb">';
+		echo '<li><a href="' . get_option( 'home' ) . '">';
+		echo __( 'Home' );
+		echo '</a></li>';
+
+		if ( is_single () ) {
+
+			echo '<li>';
+				the_category(', ');
+			echo '</li>';
+
+			if ( is_single() ) {
+				echo '<li>' . get_the_title() . '</li>';
+			}
+
+		} elseif ( is_category () ) {
+
+			echo '<li>'; single_cat_title(); echo '</li>';
+
+		} elseif ( is_page () && ! $post->post_parent && ( ! is_front_page () ) ) {
+
+			echo '<li>' . get_the_title() . '</li>';
+
+		} elseif ( is_page () && $post->post_parent && ( ! is_front_page () ) ) {
+
+			$post_array = get_post_ancestors( $post );
+			krsort( $post_array );
+
+			foreach ( $post_array as $key=>$postid ) {
+				$post_ids = get_post( $postid );
+				echo '<li class="active">';
+				echo '<a href="' . get_permalink( $post_ids ) . '">';
+				echo $post_ids->post_title;
+				echo '</a></li>';
+			}
+
+			echo '<li>' . get_the_title() . '</li>';
+
+		} elseif ( is_tag() ) {
+
+			echo '<li>';
+			echo 'Etiqueta: ';
+				single_tag_title();
+			echo '</li>';
+
+		} elseif ( is_day() ) {
+
+			echo '<li>';
+			printf( 'Archivo del día: %s', get_the_time( 'F j, Y' ) );
+			echo '</li>';
+
+		} elseif ( is_month() ) {
+
+			echo '<li>';
+			printf( 'Archivo del mes: %s', get_the_time( 'F, Y' ) );
+			echo '</li>';
+
+		} elseif ( is_year() ) {
+
+			echo '<li>';
+			printf( 'Archivo del año: %s', get_the_time( 'Y' ) );
+			echo '</li>';
+
+		} elseif ( is_author() ) {
+			global $author;
+
+			$user_info = get_userdata( $author );
+
+			echo '<li>';
+			printf( 'Publicado por %s', $user_info->display_name );
+			echo '</li>';
+
+		} elseif ( isset( $_GET[ 'paged' ] ) && ! empty( $_GET[ 'paged' ] ) ) {
+
+			echo '<li>Archivo:</li>';
+
+		} elseif ( is_search() ) {
+
+			echo'<li>Resultados de búsqueda</li>';
+
+		}
+
+		echo '</ol>';
+	}
+}
+
 ?>
