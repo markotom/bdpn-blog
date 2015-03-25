@@ -23,11 +23,70 @@
 @import 'bower_components/bootstrap/less/utilities.less';
 
 /* Digital Library of Novohispanic Thought */
+
+// Custom variables
 @import 'variables.less';
+@container-width: 1140px;
 
+// Non responsive
+@import 'non-responsive.less';
 
-body {
-	background: #efeeec url('http://bdpn.unam.mx/images/unam_bdpn_bgd_body.jpg') repeat-x fixed;
-	font-weight: 300;
+// Scaffolding
+@import 'scaffolding.less';
+
+#header {
+	padding-top: @line-height-computed / 3;
+	padding-bottom: @line-height-computed;
+	background: url(../../assets/images/header.png);
+
+	.logo { margin-right: @line-height-computed; }
+
+	.logo-unam { margin-right: @line-height-computed * 3; }
+
+	.title {
+		margin-top: 4px;
+		width: 923px;
+	}
+
+	.subtitle {
+		.h5;
+		.text-right;
+
+		width: 923px;
+		font-family: @font-family-sans-serif;
+	}
 }
 
+#nav-main {
+	margin-top: -35px;
+
+	li {
+		.pull-left;
+		.text-center;
+
+		letter-spacing: 1px;
+
+		& + li { padding-left: 4px; }
+
+		a {
+			display: block;
+			height: 116px;
+			width: 116px;
+			line-height: 116px;
+			color: #fff;
+			background: url('http://www.bdpn.unam.mx/images/unam_bdpn_bgd_menu.png') no-repeat;
+		}
+
+		&.ob a { background-position: 0 0; }
+		&.au a { background-position: -120px 0; }
+		&.co a { background-position: -241px 0; }
+		&.in a { background-position: -365px 0; }
+
+		&.ob a:hover { background-position: 0 -120px; }
+		&.au a:hover { background-position: -120px -120px; }
+		&.co a:hover { background-position: -241px -120px; }
+		&.in a:hover { background-position: -365px -120px; }
+	}
+}
+
+#navbar-main { background-image: url(../../assets/images/grain-black.png); }
