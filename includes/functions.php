@@ -116,4 +116,27 @@ function bdpn_secondary_sidebar() {
 
 }
 
+function bdpn_pagination() {
+
+	// You can use WP-PageNavi plugin
+	// https://wordpress.org/plugins/wp-pagenavi
+	if ( function_exists( 'wp_pagenavi' ) ) :
+
+		wp_pagenavi();
+
+	else:
+
+		echo '<ul class="pager"><li class="previous">';
+
+			previous_posts_link();
+
+		echo '</li><li class="next right">';
+
+			next_posts_link();
+
+		echo '</li></ul>';
+
+	endif;
+
+}
 ?>
