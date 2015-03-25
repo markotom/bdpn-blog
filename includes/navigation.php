@@ -13,11 +13,11 @@ add_action( 'after_setup_theme', 'bdpn_register_nav_menus' );
 // Register Nav Menus
 function bdpn_register_nav_menus() {
 
+	// Register nav app menu
+	register_nav_menu( 'app', __( 'App menu', 'bdpn' ) );
+
 	// Register nav main menu
 	register_nav_menu( 'main', __( 'Main menu', 'bdpn' ) );
-
-	// Register nav footer menu
-	register_nav_menu( 'footer', __( 'Footer menu', 'bdpn' ) );
 
 }
 

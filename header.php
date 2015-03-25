@@ -31,24 +31,43 @@
 			</h1>
 			<h2 class="subtitle"><?php bloginfo( 'description' ) ?></h2>
 
-			<!-- TODO: make a wordpress menu -->
-			<ul id="nav-main" class="list-unstyled">
-				<li class="ob"><a href="http://www.bdpn.unam.mx/books">Obras</a></li>
-				<li class="au"><a href="http://www.bdpn.unam.mx/authors">Autores</a></li>
-				<li class="co"><a href="http://www.bdpn.unam.mx/collections">Colecciones</a></li>
-				<li class="in"><a href="http://www.bdpn.unam.mx/terms">Índices</a></li>
-			</ul>
+			<?php
+
+				if ( has_nav_menu( 'app' ) ) :
+
+					// Shows app nav menu
+					wp_nav_menu(
+						array(
+							'depth'          => -1,
+							'theme_location' => 'app',
+							'menu_id'        => 'nav-app',
+							'menu_class'     => 'list-unstyled',
+							'container'      => 'ul'
+						)
+					);
+
+				endif;
+
+			?>
 		</div>
 	</header>
 
+	<?php if ( has_nav_menu( 'main' ) ) : ?>
 	<nav class="navbar navbar-inverse navbar-static-top" id="navbar-main">
 		<div class="container">
-			<!-- TODO: make a wordpress menu -->
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
-			</ul>
+			<?php
+
+					// Shows main nav menu
+					wp_nav_menu(
+						array(
+							'depth'          => 3,
+							'theme_location' => 'main',
+							'menu_class'     => 'nav navbar-nav',
+							'container'      => 'ul'
+						)
+					);
+
+			?>
 		</div>
 	</nav>
+	<?php endif; ?>

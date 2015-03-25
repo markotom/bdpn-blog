@@ -90,6 +90,12 @@ function bdpn_enqueue_assets() {
 		// Enqueue main styles
 		wp_enqueue_style( 'bdpn_styles' );
 
+		// Register scripts
+		wp_register_script( 'bdpn_scripts', sprintf( $asset_path, 'bdpn.min', 'js' ), array( 'jquery' ) );
+
+		// Enqueue scripts
+		wp_enqueue_script( 'bdpn_scripts' );
+
 	}
 
 }

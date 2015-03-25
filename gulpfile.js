@@ -34,7 +34,10 @@ gulp.task('styles:production', function () {
 
 // Build app scripts
 gulp.task('scripts:app', function() {
-	return gulp.src('./assets/js/**/*.js')
+	return gulp.src([
+			'bower_components/bootstrap/dist/js/bootstrap.min.js',
+			'./assets/js/**/*.js'
+		])
 		.pipe(concat('bdpn.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('./built/js'))
