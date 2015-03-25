@@ -139,4 +139,38 @@ function bdpn_pagination() {
 	endif;
 
 }
+
+function bdpn_post_thumbnail( $thumb_size = 'thumb-large' ) {
+
+	$permalink = get_permalink();
+
+	if ( has_post_thumbnail() ) :
+
+		if ( is_singular() ) :
+
+			echo '<div class="post-thumbnail">';
+				the_post_thumbnail( $thumb_size, array( 'class' => 'img-responsive' ) );
+			echo '</div>';
+
+		else :
+
+			echo '<a href="' . $permalink . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '" class="post-thumbnail" rel="bookmark">';
+				the_post_thumbnail( $thumb_size, array( 'class' => 'img-responsive' ) );
+			echo '</a>';
+
+		endif;
+
+	else :
+
+		if ( ! is_singular() ) :
+
+			echo '<a href="' . $permalink . '" class="post-thumbnail" rel="bookmark">';
+				echo '<img src="'. get_stylesheet_directory_uri() .'/assets/images/no-photo.gif" alt="">';
+			echo'</a>';
+
+		endif;
+
+	endif;
+
+}
 ?>
