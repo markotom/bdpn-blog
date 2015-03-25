@@ -93,4 +93,15 @@
 	}
 }
 
-#navbar-main { background-image: url(../../assets/images/grain-black.png); }
+#navbar-main,
+#footer { background-image: url(../../assets/images/grain-black.png); }
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: @line-height-computed * 2;
+	color: @gray-lighter;
+	font-size: 85%;
+	padding: (@line-height-computed / 2) 0;
+}
