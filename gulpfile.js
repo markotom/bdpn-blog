@@ -5,6 +5,7 @@ var browserSync = require('browser-sync'),
     minifyCss   = require('gulp-minify-css'),
     concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
+    shell       = require('gulp-shell'),
     zip         = require('gulp-zip'),
     pkg         = require('./package.json');
 
@@ -43,6 +44,12 @@ gulp.task('scripts:app', function() {
 		.pipe(gulp.dest('./built/js'))
 		.pipe(reload({ stream: true }));
 });
+
+// Get optiontree from github repo
+gulp.task('optiontree', shell.task([
+	'rm -rf option-tree',
+	'git clone https://github.com/valendesigns/option-tree.git'
+]));
 
 // Build Wordpress Theme
 gulp.task('theme', [
