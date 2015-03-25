@@ -78,7 +78,7 @@ function bdpn_current_layout() {
 			}
 
 			// Get global layout
-			$global_layout = bdpn_get_global_layout();
+			$global_layout = !bdpn_get_global_layout() ? 'col-3-left' : bdpn_get_global_layout();
 
 			// Set current layout
 			$current_layout = ot_get_option( $layout_name );
