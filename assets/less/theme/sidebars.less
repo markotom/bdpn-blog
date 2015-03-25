@@ -1,0 +1,40 @@
+//
+// Sidebars
+// --------------------------------------------------
+
+.widget {
+	.clearfix;
+	#gradient > .vertical(lighten(@gray-lighter, 5%), lighten(@gray-lighter, 4%));
+
+	padding: @line-height-computed / 2;
+	margin-bottom: @line-height-computed;
+	border-radius: @border-radius-base;
+	border: 1px solid @well-border;
+
+	-ms-word-break: break-all;
+		 word-break: break-all;
+		 word-break: break-word;
+	-webkit-hyphens: auto;
+		 -moz-hyphens: auto;
+					hyphens: auto;
+}
+
+.widget-title {
+	.text-muted;
+
+	margin: 0 -(@line-height-computed / 2);
+	margin-bottom: @line-height-computed / 2;
+	padding: 0 @line-height-computed 0 @line-height-computed / 2;
+	padding-bottom: @line-height-computed / 2;
+	border-bottom: 1px solid @well-border;
+}
+
+
+.sidebar-bottom {
+	background-color: @gray-lighter;
+	padding: (@line-height-computed * 2) 0;
+
+	.widget {
+		border: 0;
+	}
+}
